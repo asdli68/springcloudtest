@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ClientIndex</title>
+</head>
+<body>
+	<form action = "#" th:action = "@{/form}" th:object = "${book}" method = "post">
+		<p>書名 : <input type = "text" th:field = "*{bookName}" /></p>
+		<p>價格 : <input type = "text" th:field = "*{price}" /></p>
+		<p>作者 : <input type = "text" th:field = "*{writer}" /></p>
+		<p>出版號 : <input type = "text" th:field = "*{bookNumber}" /></p>
+		<input type = "submit" />
+	</form>
+	
+	<br />
+	
+	<!-- 檔案上傳 -->
+	<form enctype = "multipart/form-data" method = "post" th:action = "@{/upload}">
+		<input type = "file" name = "file" /><input type = "submit" value = "上傳" />
+	</form>
+	
+	<br />
+	
+	<form th:action = "@{/data}">
+		<input type = "submit" value = "查看" />
+	</form>
+	
+	<br />
+	
+	<form th:action = "@{/getBook}">
+		<input type = "submit" value = "查看價格大於150的書" />
+	</form>
+	
+</body>
+</html>
